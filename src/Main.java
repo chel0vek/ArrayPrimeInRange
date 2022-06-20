@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Введите два числа");
         int a = input.nextInt();
         int b = input.nextInt();
-        fillArrayWithPrimeNums(a, b);
+        System.out.println(Arrays.toString(fillArrayWithPrimeNums(a, b)));
     }
 
     static boolean isPrimeNumber(int number) {
@@ -25,7 +25,6 @@ public class Main {
         if (divider <= number) {
             if (number % divider == 0) {
                 dividers++;
-                //System.out.println(dividers + " колво делителей чилса " + number + " делитель числа " + divider);
             }
             return divider(number, ++divider);
         }
@@ -53,7 +52,7 @@ public class Main {
                 index++;
             }
         }
-        System.out.println(Arrays.toString(array));
         return array;
     }
+
 }
