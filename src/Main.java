@@ -11,7 +11,8 @@ public class Main {
         System.out.println("Введите два числа");
         int a = input.nextInt();
         int b = input.nextInt();
-        System.out.println(Arrays.toString(fillArrayWithPrimeNums(a, b)));
+        System.out.println("простые числа в промежутке от а до b " + Arrays.toString(fillArrayWithPrimeNums(a, b)));
+        System.out.println("простые индексы массива " + Arrays.toString(fillArrayWithPrimeIndexes(a,b)));
     }
 
     static boolean isPrimeNumber(int number) {
@@ -50,6 +51,47 @@ public class Main {
             if (isPrimeNumber(i)) {
                 array[index] = i;
                 index++;
+            }
+        }
+        return array;
+    }
+    static boolean isPrimeIndex(int index) {
+        if(index <= 1) {
+            return false;
+        }
+        return indexDivider(index, divider);
+    }
+    static boolean indexDivider(int index, int divider) {
+        if (divider <= index) {
+            if (index % divider == 0) {
+                dividers++;
+            }
+            return indexDivider(index, ++divider);
+        }
+        if (dividers == 2) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    static int[] fillArrayWithPrimeIndexes(int start,int finish) {
+        int size = 0;
+        int index = 2;
+        for (int i = start; i <= finish; i++) {
+            dividers = 0;
+            if (isPrimeIndex(i)) {
+                size++;
+            }
+        }
+        int[] array = new int[size];
+        int indexZero = 0;
+        // облатсь в которой метод должен пройтись по первому массиву и найти его простые индексы.
+        for (int i = index; i <= size; i++) {
+            dividers = 0;
+            if (isPrimeIndex(i)) {
+                array[indexZero] = i;
+                indexZero++;
             }
         }
         return array;
