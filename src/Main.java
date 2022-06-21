@@ -78,7 +78,7 @@ public class Main {
     static int[] fillArrayWithPrimeIndexes(int start,int finish) {
         int size = 0;
         int index = 2;
-        for (int i = start; i <= finish; i++) {
+        for (int i = index; i <= finish; i++) {
             dividers = 0;
             if (isPrimeIndex(i)) {
                 size++;
@@ -96,4 +96,34 @@ public class Main {
         }
         return array;
     }
+    /*static int sumNums(int start, int finish) {
+        int index = 2;
+        int sum = 0;
+        int size = 0;
+        for (int i = start; i <= finish; i++) {
+            dividers = 0;
+            if(isPrimeNumber(i)) {
+                size++;
+            }
+        }
+        int[] arr = new int[size];
+        System.out.println(Arrays.toString(arr));
+        for (int i = start; i <= size; i++) {
+            dividers = 0;
+            if (isPrimeIndex(i)) {
+                arr[index] = i;
+                index++;
+            }
+        }
+        for (int i = start; i <= size; i++) {
+            dividers = 0;
+            if (isPrimeIndex(i)) {
+                if (start <= size) {
+                    sum = sum + arr[i];
+                    sumNums(start,finish);
+                }
+            }
+        }
+        return sum;
+    } */
 }
