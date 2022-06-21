@@ -12,7 +12,7 @@ public class Main {
         int a = input.nextInt();
         int b = input.nextInt();
         System.out.println("простые числа в промежутке от а до b " + Arrays.toString(fillArrayWithPrimeNums(a, b)));
-        System.out.println("простые индексы массива " + Arrays.toString(fillArrayWithPrimeIndexes(a,b)));
+        System.out.println("простые индексы массива " + Arrays.toString(fillArrayWithPrimeIndexes(a, b)));
     }
 
     static boolean isPrimeNumber(int number) {
@@ -38,7 +38,7 @@ public class Main {
 
     static int[] fillArrayWithPrimeNums(int start, int finish) {
         int size = 0;
-        for(int i = start; i <= finish; i++) {
+        for (int i = start; i <= finish; i++) {
             dividers = 0;
             if (isPrimeNumber(i)) {
                 size++;
@@ -51,16 +51,19 @@ public class Main {
             if (isPrimeNumber(i)) {
                 array[index] = i;
                 index++;
+
             }
         }
         return array;
     }
+
     static boolean isPrimeIndex(int index) {
-        if(index <= 1) {
+        if (index <= 1) {
             return false;
         }
         return indexDivider(index, divider);
     }
+
     static boolean indexDivider(int index, int divider) {
         if (divider <= index) {
             if (index % divider == 0) {
@@ -70,15 +73,18 @@ public class Main {
         }
         if (dividers == 2) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    static int[] fillArrayWithPrimeIndexes(int start,int finish) {
+
+    static int[] fillArrayWithPrimeIndexes(int start, int finish) {
         int size = 0;
         int index = 2;
-        for (int i = index; i <= finish; i++) {
+        int[] array1 = fillArrayWithPrimeNums(start, finish);
+        int length = array1.length;
+        System.out.println(length);
+        for (int i = start; i <= length; i++) {
             dividers = 0;
             if (isPrimeIndex(i)) {
                 size++;
@@ -87,7 +93,7 @@ public class Main {
         int[] array = new int[size];
         int indexZero = 0;
         // облатсь в которой метод должен пройтись по первому массиву и найти его простые индексы.
-        for (int i = index; i <= size; i++) {
+        for (int i = index; i <= length; i++) {
             dividers = 0;
             if (isPrimeIndex(i)) {
                 array[indexZero] = i;
