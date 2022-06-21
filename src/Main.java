@@ -64,17 +64,10 @@ public class Main {
         int[] array2 = fillArrayWithPrimeNums(0, array1.length);
         System.out.println(Arrays.toString(array1));
         System.out.println(Arrays.toString(array2));
-        for (int i = 0; i < array2.length; i++ ) {
+        for (int i = 0; i < array2.length; i++) {
             int val = array2[i];
             sum += array1[val];
         }
-//        int length = array1.length;
-//        for (int i = indexTwo; i <= length; i++) {
-//            dividers = 0;
-//            if (isPrimeNumber(i)) {
-//                sum += array[i];
-//            }
-//        }
         return sum;
     }
 }
