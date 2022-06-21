@@ -13,7 +13,7 @@ public class Main {
         int[] array = fillArrayWithPrimeNums(a, b);
         System.out.println("простые числа в промежутке от а до b " + Arrays.toString(fillArrayWithPrimeNums(a, b)));
         System.out.println("простые индексы массива " + Arrays.toString(fillArrayWithPrimeNums(0, array.length)));
-        System.out.println("sum = " + sumNums(a, b, array));
+        System.out.println("sum = " + sumNums(a, b));
     }
 
     static boolean isPrimeNumber(int number) {
@@ -58,17 +58,23 @@ public class Main {
         return array;
     }
 
-    static int sumNums(int start, int finish, int[] array) {
+    static int sumNums(int start, int finish) {
         int sum = 0;
-        int indexTwo = 2;
         int[] array1 = fillArrayWithPrimeNums(start, finish);
-        int length = array1.length;
-            for (int i = indexTwo; i <= length; i++) {
-                dividers = 0;
-                if (isPrimeNumber(i)) {
-                    sum += array[i];
-                }
-            }
+        int[] array2 = fillArrayWithPrimeNums(0, array1.length);
+        System.out.println(Arrays.toString(array1));
+        System.out.println(Arrays.toString(array2));
+        for (int i = 0; i < array2.length; i++ ) {
+            int val = array2[i];
+            sum += array1[val];
+        }
+//        int length = array1.length;
+//        for (int i = indexTwo; i <= length; i++) {
+//            dividers = 0;
+//            if (isPrimeNumber(i)) {
+//                sum += array[i];
+//            }
+//        }
         return sum;
     }
 }
